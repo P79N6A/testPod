@@ -36,7 +36,7 @@ echo "Pod::Spec.new do |s|
     s.summary = '新浪视频云平台sdk'
     s.homepage = 'http://wiki.intra.sina.com.cn/pages/viewpage.action?pageId=105843426'
     s.author = { '$git_author' => '$git_email' }
-    s.source = { :git => 'git@git.staff.sina.com.cn:sinaVideoPlatform/LQMediaPlayerSDK.git' , :tag => '$sdk_version'}
+    s.source = { :git => 'git@github.com:weihanyumo/testPod.git' , :tag => '$sdk_version'}
     s.platform = :ios, '8.0'
     s.preserve_paths      = 'LQMediaPlayerSDK.framework'
     s.public_header_files  = 'LQMediaPlayerSDK.framework/Headers/*.h'
@@ -55,9 +55,9 @@ echo "==> 打tag"
 git tag "$sdk_version"
 git push origin "$sdk_version"
 #
-#echo "==> 上传podspec配置"
-#export LANG=en_US.UTF-8
-#/usr/local/bin/pod repo remove podspec
-#/usr/local/bin/pod repo add podspec git@git.staff.sina.com.cn:sinaVideoPlatform/podspec.git
-#/usr/local/bin/pod repo push podspec LQMediaPlayerSDK.podspec --allow-warnings --verbose
+echo "==> 上传podspec配置"
+export LANG=en_US.UTF-8
+/usr/local/bin/pod repo remove podspec
+/usr/local/bin/pod repo add podspec git@github.com:weihanyumo/podspec.git
+/usr/local/bin/pod repo push podspec LQMediaPlayerSDK.podspec --allow-warnings --verbose
 
